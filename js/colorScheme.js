@@ -1,4 +1,4 @@
-const colorScheme = document.querySelector("[data-color-scheme]");
+const colorSchemeElement = document.querySelector("[data-color-scheme]");
 const colorSchemeButton = document.querySelector("[data-color-scheme-btn]");
 
 const colorSchemeLocalStorage = localStorage.getItem("color-scheme");
@@ -7,13 +7,24 @@ const colorSchemeLocalStorage = localStorage.getItem("color-scheme");
 const colorSchemeSystem = () =>
   window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
 
+function changeIconButton() {
+  const currentScheme = colorSchemeElement.dataset.colorScheme;
+  const isLightMode = currentScheme === "light";
+  const iconClassToRemove = isLightMode ? "fa-sun" : "fa-moon";
+  const iconClassToAdd = isLightMode ? "fa-moon" : "fa-sun";
+
+  colorSchemeButton.classList.remove(iconClassToRemove);
+  colorSchemeButton.classList.add(iconClassToAdd);
+}
+
 function setColorScheme(color) {
-  colorScheme.dataset.colorScheme = color;
+  colorSchemeElement.dataset.colorScheme = color;
   localStorage.setItem("color-scheme", color);
+  changeIconButton();
 }
 
 function colorSchemeToggle() {
-  colorScheme.dataset.colorScheme === "light"
+  colorSchemeElement.dataset.colorScheme === "light"
     ? setColorScheme("dark")
     : setColorScheme("light");
 }

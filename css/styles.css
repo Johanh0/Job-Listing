@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+
 :root {
   /* COLORS  */
   --primary-color: #6957e0;
@@ -5,8 +7,16 @@
   --bg-color: #ffffff;
 }
 
+/* VARIABLES FOR DARK MODE */
 [data-color-scheme="dark"] {
   --bg-color: #1f1f1f;
+}
+
+/* DARK MODE SET COLORS */
+@media (prefers-color-scheme: dark) {
+  html {
+    background-color: var(--bg-color);
+  }
 }
 
 * {
@@ -18,12 +28,8 @@
 html {
   color-scheme: light dark;
   font-size: 62.5%;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    background-color: var(--bg-color);
-  }
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
 }
 
 .header {
@@ -37,6 +43,9 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: 2.5rem;
 }
 
 .header__nav--toggle {
