@@ -1,0 +1,44 @@
+:root {
+  /* COLORS  */
+  --primary-color: #6957e0;
+  --secondary-color: #181818;
+  --bg-color: #ffffff;
+}
+
+[data-color-scheme="dark"] {
+  --bg-color: #1f1f1f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+  font-size: 62.5%;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    background-color: var(--bg-color);
+  }
+}
+
+.header {
+  width: 100vw;
+  height: fit-content;
+  padding: 30px;
+  background-color: var(--secondary-color);
+}
+
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__nav--toggle {
+  cursor: pointer;
+}
